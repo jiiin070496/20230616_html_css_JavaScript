@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div><img src="./resources/images/Golde33443.jpg" alt=""></div>
+        <div>
+            <form action="./20230619_search_do.html" method="get">
+                <input type="color" name="myColor"><!--mycolor=%23a69526-->
+                <input type="date" name="myDate">
+                <input type="time" name="myTime">
+                <hr>
+                <input type="number" name="MyNumber">
+                <input type="range" name="MyRange">
+                <fieldset>
+                    <legend>it관련</legend>
+                    <input checked="checked" type="checkbox" name="it" value="java" id="javaid"><label for="javaid">Java</label>
+                    <input type="checkbox" name="it" value="c#" id="c#id"><label for="c#id">c#</label>
+                    <input type="checkbox" name="it" value="sql" id="sqlid"><label for="sqlid">SQL</label>
+                </fieldset>
+                <fieldset>
+                    <legend>수험서</legend>
+                    <input type="radio" name="sub" value="info"><label>정보처리기사</label>
+                    <input type="radio" name="sub" value="sqld"><label>SQLD</label>
+                    <input type="radio" name="sub" value="security"><label>정보보안기사</label>
+                </fieldset>
+                <input type="text" name="word" value="검색어를 입력해주세요." readonly="readonly">
+                <button type="submit">택스트와 이미지가능 <img src="./resources/images/Golde33443.jpg" alt="20"></button>
+                <input type="submit" value="텍스트만 작성 가능">
+                <input type="button" value="type button은 js에서 사용될 예정">
+                <input type="reset" value="form태그 내부 사용자 입력창들의 초기값">
+            </form>
+        </div>
+        <hr>
+    </header>
+    <div id="wrap_content">
+        <section>
+            <form action="a.html" method="get">
+                <input multiple type="file" name="uploadfile">
+                <button type="submit">파일전달)</button>
+            </form>
+        </section>
+        <aside>
+            http://127.0.0.1:5500/20230619_main.html?hidd=hvalue&id=&pwd=
+            <form action="./20230619_login_check_do.html" method="get">
+                <input type="hidden" name="hid" value="hvalue">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td> <label for="idid">id</label></td>
+                            <td><input type="text" name="id" size="5" maxlength="10" id="idid"></td>
+                            <td rowspan="2"> <button tpye="submit">로그인</button>
+                        </tr>
+                        <tr>
+                            <td><label>password</label></td>
+                            <td><input type="text" name="pwd"></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="reset" value="form태그 내부 사용자 입력창들의 초기값">
+            </form>
+        </aside>
+        <hr>
+    </div>
+    <footer>
+        <input type="button" value="button은 form과 무관하게 js연동">
+        <input type="">
+        copyright KH.co.kr
+    </footer>
+</body>
+</html>
