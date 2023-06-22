@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            /*옆으로 나란히*/
+            float: left;
+        }
+        nav a{
+            /*font-size: 16px;* 기본값이라 적지 않아도됨*/
+            height: 50px;
+            line-height: 50px;
+
+            display: inline-block; /*크기를 나타냄*/
+
+            text-align: center;
+
+            width: 150px;
+
+            background-color: black;
+            color: white;
+
+            text-decoration: none;
+        }
+        nav a:hover{
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+<!--줄 바꿈은 여백을 발생시키므로 붙여서 사용. #붙이면 내부이동으로 화면이 바뀌지 않음. -->
+        <ul>
+            <li><a href="#HTML5">HTML5</a></li>>
+            <li><a href="#CSS3">CSS3</a></li>
+            <li><a href="#JavaScript">JavaScript</a></li>
+            <li><a href="#jQuery">jQuery</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

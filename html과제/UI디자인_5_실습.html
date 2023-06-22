@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI디자인5</title>
+    <style>
+        /*0. 화면에서 사용되는 공통(색상, 폰트, ul, table등의 style지정) reset.css*/
+        *{
+            /*시작할때 무조건 걸고 시작해야함.*/
+            margin: 0;
+            padding: 0;
+        }
+
+        /*1. body의 자식 layout */
+        /*2. header의 자식 layout*/
+        
+        ul{
+            list-style: none;
+        }
+        header > div.logo{
+            float: left;
+        }
+        header > div.login{
+            float: right;
+        }
+        header{
+            overflow: hidden;
+        }
+        /* float 사용시 부모 태그에 overflow로 계산함*/
+        /*3. nav의 자식 layout */
+        nav li{
+            float: left;
+            width: 15%;
+        }
+        nav > ul{
+            overflow: hidden;
+        }
+        nav li:first-of-type{
+            margin-left: 5%;
+        }
+        /*4. section의 자식 layout */
+        section{
+            height: 500px;
+        }
+        /*5. footer 자식 layout */
+        footer{
+            height: 50px;
+        }
+        /*3. nav 자식 detail */
+        nav a{
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        /*4. section의 자식 detail */
+        section{
+            background-color: #999;
+        }
+        /*5. footer의 자식 detail */
+        footer{
+            background-color: #ccc;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--1. 먼저 덩어리 나눔 중요!-->
+    <header>
+        <div class="logo">
+            <img src="/resources/images/카리나1.jpg" width="100" height="100">
+        </div>
+        <div class="login">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text"></td>                   
+                    </tr>
+                    <tr>
+                        <td>패스워드</td>
+                        <td><input type="password"></td>                   
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><input type="submit"><input type="reset"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">메인</a></li>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">자유게시판</a></li>
+            <li><a href="#">갤러리</a></li>
+            <li><a href="#">회원관리</a></li>
+            <li><a href="#">채팅하기</a></li>
+        </ul>
+    </nav>
+    <section>
+
+    </section>
+    <footer>
+        <marquee>Copyright &copy; 1998-2019 KH Information Educational Institute All Right Reverved</marquee> 
+    </footer>    
+</body>
+</html>
