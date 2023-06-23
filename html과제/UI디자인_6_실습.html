@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        ul{
+
+        ul {
             list-style: none;
         }
-        li{
+
+        li {
             /*옆으로 나란히*/
             float: left;
         }
-        nav a{
+
+        nav a {
             /*font-size: 16px;* 기본값이라 적지 않아도됨*/
             height: 50px;
             line-height: 50px;
 
-            display: inline-block; /*크기를 나타냄*/
+            display: inline-block;
+            /*크기를 나타냄*/
 
             text-align: center;
 
@@ -32,15 +37,42 @@
 
             text-decoration: none;
         }
-        nav a:hover{
+
+        nav a:hover {
             font-weight: bold;
             font-size: 1.2em;
         }
     </style>
+    <!-- swiper.com -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <style>
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <!-- swiper.com -->
 </head>
+
 <body>
+    <!-- Slider main container -->
+    <!-- swiper.com -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <!-- swiper.com -->
     <nav>
-<!--줄 바꿈은 여백을 발생시키므로 붙여서 사용. #붙이면 내부이동으로 화면이 바뀌지 않음. -->
+        <!--줄 바꿈은 여백을 발생시키므로 붙여서 사용. #붙이면 내부이동으로 화면이 바뀌지 않음. -->
         <ul>
             <li><a href="#HTML5">HTML5</a></li>>
             <li><a href="#CSS3">CSS3</a></li>
@@ -48,5 +80,33 @@
             <li><a href="#jQuery">jQuery</a></li>
         </ul>
     </nav>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+     const swiper = new Swiper('.swiper', {
+         // Optional parameters
+         //direction: 'vertical' -->위 아래로 움직이는 역할
+        loop: true,
+
+         // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+         // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        });
+</script>
 </body>
+
 </html>
