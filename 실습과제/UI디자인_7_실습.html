@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/resources/css/reset.css" rel="stylesheet">
+    <!-- body layout -->
+    <style>
+       .wrap.content {
+            background-color: beige;
+        }
+ 
+        #content{
+            box-sizing: border-box;
+            width: 600px;
+            margin: 0 auto;
+            padding: 5px;
+        }
+
+        #content {
+            overflow: hidden;
+        }
+        aside {
+            width: 194px;
+            float: right;
+        }
+    </style>
+    <style>
+        aside {
+            margin-top: 10px;
+        }
+
+        aside input[type=radio] {
+            display: none;
+        }
+
+        .items tab-item {
+            display: none;
+        }
+
+        aside input[type=radio]:nth-of-type(1):checked~.items tab-item:nth-of-type(1) {
+            display: block;
+        }
+
+        aside input[type=radio]:nth-of-type(2):checked~.items tab-item:nth-of-type(2) {
+            display: block;
+        }
+
+        aside .labels {
+            overflow: hidden;
+        }
+
+        aside .labels>label {
+            width: 50%;
+            display: block;
+            float: left;
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        /* 버튼 눌렀을때 색상 변경 */
+        aside input[type=radio]:nth-of-type(1):checked~.labels label:nth-of-type(1) {
+            background-color: red;
+            color: yellow;
+        }
+
+        aside input[type=radio]:nth-of-type(2):checked~.labels label:nth-of-type(2) {
+            background-color: yellowgreen;
+            color: red;
+        }
+
+        aside .items li {
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            padding: 5px;
+        }
+
+        aside .items li {
+            overflow: hidden;
+        }
+
+        aside .items li div {
+            float: left;
+        }
+
+        aside .items li .descript p {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 120px;
+            overflow: hidden;
+        }
+
+        aside .items li .thumnail {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+            <aside>
+                <input type="radio" name="tab" id="first" checked> <!--name의 기능: 하나 눌리면나머지는 못누르게하는 효과-->
+                <input type="radio" name="tab" id="second" checked>
+                <div class="labels">
+                    <label for="first" id="test1">First</label>
+                    <label for="second" id="test2">Second</label><!-- 아이디 지정후 for로 묶어주면 글자만 눌러도 체크됨.-->
+                </div>
+                <div class="items">
+                    <div class="tab-item">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <div class="thumnail">
+                                        <img src="https://dummyimage.com/45/ccc">
+                                    </div>
+                                    <div class="descript">
+                                        <p>HTML5 canvasssssssss</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="thumnail">
+                                        <img src="/resources/images/카리나1.jpg" width="45" height="45">
+                                    </div>
+                                    <div class="descript">
+                                        <p>HTML5 Semanticccccccc</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="thumnail">
+                                        <img src="https://dummyimage.com/45/ccc">
+                                    </div>
+                                    <div class="descript">
+                                        <p>HTML5 Audiooooooo</p>
+                                        <p>2023-06-23</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="thumnail">
+                                        <img src="https://dummyimage.com/45/ccc">
+                                    </div>
+                                    <div class="descript">
+                                        <p>HTML5 Videooooooo</p>
+                                        <p>20230623</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li>sementic</li>
+                            <li>transition</li>
+                            <li>NK</li>
+                            <li>KS</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>
