@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        document.write("ccc");
+        document.write("ddd");
+        var a, b, c; // 이렇게도 선언 가능
+    </script>
+</head>
+
+<body>
+    <h1 id="heading" class="c1">내용</h1>
+    <h1 class="c1 c2">내용 2</h1>
+    <script>
+        document.write("aaa");
+        document.write("bbb");
+
+        var heading = document.getElementById(heading);
+        console.log(heading);
+        heading = document.querySelectorAll("#heading");
+        console.log(heading);
+
+        heading = document.querySelector(".c1"); //.이나 # 적어줘야함.
+        console.log(heading);
+        heading = document.querySelectorAll(".c1"); //.이나 # 적어줘야함.
+        console.log(heading);
+
+        heading = document.getElementsByClassName("c1");
+        console.log(heading);
+
+        heading = document.getElementsByTagName("h1");
+        console.log(heading);
+
+
+
+
+
+        //함수
+        function abc() {
+            var aaa1 = 100;
+        }
+        var bbb = "십이요";
+        ccc = 5.7; //window.이 생략되어있음, 기존 window객체에 ccc 멤버변수가 없었으므로 선언하며 초기값 설정
+        window.ddd = "오십칠이지요";
+        var aaa = 10;
+        console.log(aaa);
+        console.log(typeof (aaa));
+        console.log(bbb);
+        console.log(typeof (bbb));
+        console.log(ccc);
+        console.log(typeof (ccc));
+        console.log(ddd);
+        console.log(typeof (ddd));
+
+        window.ccc = "값바꿈" //멤버변수가 있으므로 기존 값만 바꿈.
+        console.log(typeof (window.ccc));
+        //windiw.location처럼 모든 BOM은 window객체의 멤버들이므로 window.은 생략 가능.
+
+        //Javascript 특징
+        //객체에 없는 멤버변수를 작성하면 새로 선언
+        //기존 멤버변수명을 사용하면 기존 멤버변수에 값 활용\
+
+        //var name = prompt("이름을 입력하세요.");
+        // document.write("<b><big>" + name + "</big></b>님 환영합니다");
+
+        // var now = new Date();
+        // var display = new toLocaleTimeString();
+        // document.write("현재 시각은" + display);
+
+        var v1 = "문자";
+        console.log(typeof (v1)); //string
+        v1 = 100.22;
+        console.log(typeof (v1)); // number
+        v1 = new Object();
+        console.log(typeof (v1)); // object
+
+        var v2;
+        console.log(typeof (v2)); // undefined
+
+        console.log(typeof (abc)); // function
+        console.log(typeof (abc())); //abc() 호출결과 값의 type으로 나타남
+
+        var f3 = abc2;
+        //f3();
+        console.log(f3); //값 undefined
+        console.log(typeof (f3)); //자료형 undefined
+        var f4 = abc3;
+        f4();
+
+
+        //자료형에 function이 존재하므로 함수를 변수에 담을 수 있음.
+        // function abc(){
+        //     return false; //리턴 값에 따라 자료형이 결정되기 때문에 자료형을 적지 않음
+        // }
+        // 1. 선언되고 초기값 대입 후 사용(활용)가능함
+        var abc2 = function () {   //지역, 이 함수 밑에서 호출해줘야함.
+            console.log("함수를 변수 abc2에 담았음.");
+        }; // ; 찍어줘야함
+
+        // 2. window 객체 생성시점에 함께 함수 생성됨. 따라서 언제 어디서든지 사용가능함.
+        function abc3() {   //전역, 전체에서 어디든지 호출가능
+            console.log("함수를 abc3에 만듬.");
+        } // ; 찍지않음. 
+
+        //호출
+        // abc3();
+        // abc2();
+
+        var f1 = abc2;
+        // f1();
+        var f2 = abc3;
+        // f2();
+
+
+        //변수선언은 여러번 가능함(가독성 때문.)
+        var f1 = "재선언 후 초기값 삼겹살.";
+        f1 = "굳이 재선언하지 않아도 값지정하면됨. 오겹살.";
+
+        // let - 변수 선언 후 재선언 안되게 막아줌. 값 바꾸긴 가능.
+        let f5 = 10;
+        f5 = "값 바꾸기 가능";
+        // let f5 = "재선언 불가";
+
+        console.log(f5.length);
+        console.log(f5.charAt(2));
+        console.log(f5.split(" ")); // 띄어쓰기 단위로 배열에 담아서 표현해줌 (3)[값, 바꾸기, 가능]
+        console.log(typeof (f5.split(" "))); // Object
+
+
+        //NaN (Not a Number) - type은 number, 값은 허수, 무한대(Infinity).
+        var f6 = 10 / 0;
+        console.log(f6); // infinity
+        console.log(typeof (f6)); //number
+        console.log(f6.length);
+
+        f6 = "문자" * 100; // 산술연산과 문자
+        console.log(f6);  //NaN
+        console.log(typeof (f6)); // number
+
+        f6 = "문자" + 100; // + 는 연결자역할
+        console.log(f6); // 문자100
+        console.log(typeof (f6)); // string
+
+        f6 = 10 / 0 + 100;
+        console.log(f6); // infinity
+        console.log(typeof (f6)); // number
+
+        f6 = Math.sqrt(-9); //음수의 제곱근
+        console.log(f6); //NaN
+        console.log(typeof (f6)); // number
+
+        var f7 = 10;
+        var f8 = "2";
+        f6 = f7 / f8; // 산술연산(+제외) 시 number 자료형이 우선이므로 문자를 숫자로 형변환
+        console.log(f6); //5
+        console.log(typeof (f6)); // number
+
+        console.log("+++++++++++++++++++++"); // number
+
+        f6 = "23.5";
+        console.log(typeof (f6)); // string
+        f6 = parseInt(f6); // parseInt - floor(소수점 아래 버림.)
+        console.log(f6); // 23
+        console.log(typeof (f6)); //Number
+
+        console.log("++++++++++비교연산자+++++++++++");
+
+        var f7 = "25";
+        var v8 = 25;
+        if (f7 == f8) {
+            console.log("f7 == f8");
+        } else {
+            console.log("f7 != f8");
+
+        }
+        if (f7 == f8) {
+            console.log("f7 === f8");
+        } else {
+            console.log("f7 !== f8");
+
+        }
+
+        console.log("+++++++++ Array ++++++++++");
+
+        var arr1 = new Array(2);
+        arr1[0] = "안녕";
+        arr1[1] = "0316";
+        arr1[2] = function () { console.log("배열의 함수") };
+        arr1[10] = 100;
+        console.log(arr1);
+        console.log(typeof (arr1)); // Object
+        console.log(arr1[0]);
+        console.log(arr1[1]);
+        console.log(arr1.length); // 11
+        console.log(arr1[5]); // undefined
+        console.log(arr1[15]); // undefined
+
+       
+        var arr2 = new Array("2", 25, function () { console.log("배열의 함수") }, 55);
+        var arr3 = ["2", 25, function () { console.log("배열의 함수") }, 55];
+        
+        arr1 = arr1.concat(arr2, arr3);
+        console.log(arr1);
+
+        arr1.push(function() { console.log("배열의 함수") });
+    
+    //java에서 method의 중요포인트.
+    //1. overloading
+
+    </script>
+</body>
+
+</html>
