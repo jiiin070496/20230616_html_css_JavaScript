@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_1</title>
+    <style>
+        p {
+            display: flex;
+            align-items: center;
+        } 
+
+        form>fieldset #content {
+            position: relative;
+            width: 300px;
+            height: 180px;
+        }
+
+        form>fieldset #content::placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        label {
+            width: 70px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+        p:last-of-type{
+            margin-left: 135px;
+        }      
+    </style>
+</head>
+
+<body>
+    <form action="insert.no" method="post">
+        <fieldset>
+            <legend>공지사항 작성하기</legend>
+            <p><label>제목</label>
+                <input type="text" name="title" id="title" placeholder="제목을 입력하시오.">
+            </p>
+            <p><label>내용</label>
+                <input type="text" name="content" id="content" placeholder="내용을 입력하시오.">
+            </p>
+            <p><label>첨부파일</label>
+                </div>
+                <input type="button" name="uploadFile" value="파일 선택">
+                <span>선택된 파일 없음</span>
+            </p>
+            <p>
+                <input type="button" value="작성하기">
+            </p>
+</body>
+
+</html>
