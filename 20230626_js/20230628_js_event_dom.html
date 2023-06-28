@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="get"  onsubmit="return frmSubmitHandler()">
+        <input type="text" name="nick">
+        <input type="submit" value="submit기능">
+    </form>
+    <script>
+        function frmSubmitHandler(){
+            console.log("submit 이벤트 함수");
+            var nickElement = document.getElementByName("nick");
+            console.log(nickElement);
+            console.log(nickElement[2].value);
+
+            if(nickElement[2].value.length < 20){
+                console.log("nick이 20글자 미만");
+                return true;
+            }else{
+                console.log("nick이 20글자 이상");
+                alert("20글자 미만으로 작성해주세요");
+                return false;
+            }
+        }
+    </script>
+    <button type="button" id="btn1" class="c1">버튼"1"</button>
+    <button type="button" id="btn2" class="c1">버튼"2"</button>
+    <button type="button" id="btn3" class="c1 c2">버튼"3"</button>
+    <button type="button" id="btn4" class="c2">버튼"4"</button>
+    <button type="button" id="btn5" class="c2">버튼"5"</button>
+
+    <script>
+        var c1Elements = document.getElementsByClassName("c1");
+        // var c1Elements = document.getElementsByTagName("button"); 으로 쓰기도함
+        console.log(c1Elements); // Elements - 배열 모양
+        // c1Elements[0].onclick = c1ClickHandler;
+        // c1Elements[1].onclick = c2ClickHandler;
+        // c1Elements[2].addEventListener("click", c2ClickHandler);
+        //js의 for문
+        for(var i=0; i<c1Elements.length; i++){
+            c1Elements[i].addEventListener("click", c1ClickHandler);
+        }
+
+        var c2Elements = document.querySelectorAll(".c2");
+        for(var i=0; i<c1Elements.length; i++){
+            c1Elements[i].addEventListener("click", c2ClickHandler);
+        }
+
+        function c1ClickHandler(){
+            console.log("c1 Click");
+            console.log(this);
+        } 
+        function c2ClickHandler(){
+            console.log("c2 Click");
+            console.log(this);
+        } 
+        function btnClickHandler(){
+            console.log("btn Click");
+            console.log(this);
+        }
+    </script>
+</body>
+</html>
