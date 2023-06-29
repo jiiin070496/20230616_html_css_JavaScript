@@ -4,8 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery dom event</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            console.log("여기 loadEvent - jQuery read")
+        });
+        $(document).ready(function(){ // jQury = $
+            console.log("여기 loadEvent - $ read")
+        });
+        jQuery(function(){
+            console.log("여기 loadEvent - jQuery read")
+        });
+        $(function(){
+            console.log("여기 loadEvent - $ read")
+        });
+        $(loadedHandler);
+
+        function loadedHandler(){
+            console.log("loadedHandler 호출")
+        };
+
+
+
+
+        //onload /  load : document가 모두 loading이 끝나면 발생하는 event
+        window.addEventListener("load", function(){
+            console.log("여기 loadEvent")
+        })
+        window.onload = function(){
+            console.log("여기 loadEvent - addEventListener")
+            var element1 = document.getElementById("content");
+            console.log(element1);
+            //event handler 정의는 밖에 선언
+
+            //window.onload 후에
+            //이 위치는 event 등록 코드
+        //     $("#btnAdd").click(aHandler);
+        //     $("#btnAdd2").click(aHandler);
+        //     $("#btnAdd3").click(aHandler);
+        //     $("#btnAdd4").click(aHandler);
+        //     $("#btnAdd5").click(aHandler);
+
+        };
+        //event handler 정의 - window.onload와 무관한 밖에 위치
+        
+
+        var element1 = document.getElementById("content");
+        console.log(element1);
+        // var element1 = $("#content");
+        // console.log(element1)
+    </script>
 </head>
 <body>
+    <script>
+        var element1 = $("#content");
+        console.log(element1)
+    </script>
+
     <div id="content">
         <ul class="menu">
             <li>menu1</li>
@@ -16,6 +71,17 @@
             <li>menu6</li>
         </ul>
     </div>
+
+    <script>
+        var element1 = $("#content");
+        console.log(element1)
+    </script>
+
     <button id="btnAdd">추가</button>
+
+    <script>
+        var element1 = $("#content");
+        console.log(element1)
+    </script>
 </body>
 </html>
