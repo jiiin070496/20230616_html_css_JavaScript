@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/resources/js/jquery-3.7.0.js"></script>
+    <script> // glober.
+        //  function jQaddClickHandler(){
+        //     console.log("jQaddClickHandler 호출");
+        //     var div1 = document.createElement("div");
+        //     var textNode1 = document.createTextNode("안녕 난 script로 만들어진 노드야!");
+        //     div1.appendChild(textNode1);
+        //     document.body.appendChild(div1);
+        // }
+        // function jQdeleteHandler() {
+        // console.log("jQdeleteHandler 호출");
+        //     var delElment = document.getElementById("btn4");
+        //     delElment.remove();
+        // }
+    </script>
+</head>
+
+<body>
+    <button type="button" id="btn1" class="c1">버튼"1"</button>
+    <button type="button" id="btn2" class="c1">버튼"2"</button>
+    <button type="button" id="btn3" class="c1 c2">버튼"3"</button>
+    <button type="button" id="btn4" class="c2">버튼"4"</button>
+    <button type="button" id="btn5" class="c2">버튼"5"</button>
+
+    <button type="button" id="btn_add">추가</button>
+    <button type="button" id="btn_delete">삭제</button>
+
+
+    <!-- <div>안녕 난 script로 만들어진 노드야!</div> -->
+
+    <script>
+        // $("#btn_add").on("click", jQaddClickHandler)
+        // $("#btn_delete").on("click", jQdeleteHandler)
+
+
+        $("#btn_add").click(jQaddClickHandler);
+        $("#btn_delete").click(jQdeleteHandler);
+
+        //화면에 element 요소노드 및 text노드를 추가.
+
+        function jQaddClickHandler(){
+            console.log("jQaddClickHandler 호출");
+            var htmlVal = "<div>안녕 난 script로 만들어진 노드야!</div>"
+            $("body").append(htmlVal); // append- 맨 뒤로 들어감
+        }
+        //화면에 element 요소노드 및 text노드를 삭제
+
+        function jQdeleteHandler() {
+        console.log("jQdeleteHandler 호출");
+            var delElment = $("#btn4")
+            delElment.remove();
+        }
+        $("btn3").css({Color: "red", borderColor: "black"})
+        $("btn2").css("border")
+
+        </script>
+        
+        
+        <script>
+            document.getElementById("btn5").style.backgroundColor = "black";
+            document.getElementById("btn5").style.borderColor = "white";
+            document.getElementById("btn5").style.color = "red";
+
+        //화면에 element 요소노드 및 text노드를 추가, 불편해서 jQuery로 대체.
+        // var btn_add = document.getElementById("btn_add");
+        // btn_add.onclick = function () {
+        //     var div1 = document.createElement("div");
+        //     var textNode1 = document.createTextNode("안녕 난 script로 만들어진 노드야!");
+        //     div1.appendChild(textNode1);
+        //     document.body.appendChild(div1);
+        // }
+
+        // //화면에 element 요소노드 및 text노드를 삭제
+        // var btn_delete = document.getElementById("btn_delete");
+        // btn_delete.onclick = function () {
+        //     var delElment = document.getElementById("btn4");
+        //     delElment.remove();
+        // }
+        //어제: 화면에 element 요소노드를 찾기.
+
+
+    </script>
+</body>
+
+</html>

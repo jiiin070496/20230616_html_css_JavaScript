@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery dom event</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <script>
+        $(loadedHandler); // 페이지 로딩되는 이벤트 등록
+        function loadedHandler(){
+            // 페이지 로딩되면 수행됨.
+            $("#show1").on("click", function(){
+                $("#content1").show(2000);
+                $("#content2").hide(2000);
+            });
+        }
+        $(loadedHandler); // 페이지 로딩되는 이벤트 등록
+        function loadedHandler(){
+            // 페이지 로딩되는 
+            $("#show2").on("click", function(){
+                $("#content2").show(900, "swing");
+                $("#content1").hide(900);
+            });
+        }
+        $(loadedHandler); // 페이지 로딩되는 이벤트 등록
+        function loadedHandler(){
+            // 페이지 로딩되는 
+            $("#showhide").on("click", function(){
+                $("#showhide").toggle();
+                $("#showhide").toggle();
+            });
+        }
+    </script>
+</head>
+<body>
+    <script>
+        var element1 = $("#content");
+        console.log(element1)
+    </script>
+
+<button id="show1">보이기1</button>
+<button id="show2">보이기2</button>
+<button id="showhide">토글</button>
+
+    <div id="content1">
+        <ul class="menu">
+            <li>1111menu1</li>
+            <li>menu2</li>
+            <li id="select">menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>
+    </div>
+    <div id="content2">
+        <ul class="menu">
+            <li>2222menu1</li>
+            <li>menu2</li>
+            <li id="select">menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>
+    </div>
+
+</body>
+</html>
