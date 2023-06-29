@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/resources/images/krn.jpg" id="krn">
+
+    <script>
+        var krn = document.querySelector("#krn")
+        krn.onclick = function(event){
+            alert("이벤트 유형: " + event.type + ", 이벤트 발생 위치: " + event.pageX + "," + event.pageY);
+        }
+    </script>
+</body>
+</html>

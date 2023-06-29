@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="/resources/images/krn.jpg" id="krn">
+
+    <script>
+        var krn = document.getElementById("krn");
+        cover.addEventListener("mouseover", changePic);
+        cover.addEventListener("mouseout", originPic);
+
+        function changePic(){
+            cover.src = "/resources/images/krn_2.jpg";
+        }
+        function originPic(){
+            cover.src = "/resources/images/krn_.jpg";
+        }
+    </script>
+</body>
+</html>

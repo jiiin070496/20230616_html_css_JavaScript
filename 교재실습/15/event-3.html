@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="change">글자색바꾸기</button>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste esse dolore nobis tenetur voluptatum eligendi magnam, quo nihil ipsum perferendis velit perspiciatis odio. Tempora officia esse, harum reiciendis vero neque.</p>
+
+    <div id="item">
+        <img src="/resources/images/top_logo.jpg" alt="">
+        <button class="over" id="open">상세 설명 보기</button>
+        <div id="desc" class="detail">
+            <h4>김소롱</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas exercitationem officia nulla! Voluptates non doloribus accusantium necessitatibus, fuga culpa quia quod autem eius! Sunt iusto doloribus eaque quam laudantium accusamus!</p>
+            <button id="close">상세 설명 닫기</button>
+        </div>
+    </div>
+
+    <script>
+        var changebttn = document.querySelector("#change");
+        changebttn.onclick = changeColor;
+
+        function changeColor(){
+            document.querySelector("p").style.color = "#f00"
+        }
+
+
+        document.querySelector('#open').onclick = function(){
+            document.querySelector('#desc').style.display = block;
+            document.querySelector('#open').style.display = none;
+
+        }
+        document.querySelector('#close').onclick = function(){
+            document.querySelector('#desc').style.display = none;
+            document.querySelector('#open').style.display = block;
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="prod-pic">
+        <img src="/resources/images/ryan.svg" alt="라이언" id="ryan" onclick="displaySrc">
+    </div>
+    <script>
+        function displaySrc(){
+            var ryan = document.querySelector("#ryan");
+            alert("이미지 소스: " + ryan.getAttribute("src"))
+        }
+    </script>
+</body>
+</html>
