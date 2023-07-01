@@ -8,26 +8,27 @@
 </head>
 <body>
     <div id="content1">
-        <ul class=""menu"">
+        <input type="hidden" name="board_id" class="board_id" value="16325">
+        <span class="board_id" style="display: none;">16325</span>
+        <ul class="menu">
             <li>menu1</li>
             <li>menu2</li>
-            <li id=""select"">menu3</li>
-            <li class=""c_select"">menu4</li>
+            <li id="select">menu3</li>
+            <li class="c_select">menu4</li>
             <li>menu5</li>
             <li>menu6</li>
         </ul>
     </div>
     <button id="btnAdd" >추가</button>
-
     <script>
         var newMenu = "<li>신메뉴</li>";  
         var $newMenu = $(newMenu);//jQuery 형태로 형변환
 
-        var obj1 = {
+        var obj2 = {
             k1: function(){},
             k2:"aaa"
         };
-        $("#btnAdd").on(
+        $("#btnAdd").on({
             "click": function(){
             //colsole.log("추가버튼 클릭됨.");
             // 1. ul 첫번째 신메뉴 추가
@@ -46,7 +47,9 @@
             $("ul").append(newMenu);
             $newMenu.appendTo("ul");
         },
-        
+        doubleclick: function(){},
+        focus: function(){},
+    }        
         );
     </script>
 </body>
