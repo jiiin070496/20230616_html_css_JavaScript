@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI구현_02</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="/resources/css/interpark_header.css">
+    <style>
+        .color_box{
+            width: 186px;
+            height: 186px;
+            margin-top: 10px;
+            margin-left: 2px;
+            margin-bottom: 30px;
+            border: 1px solid black;
+        }
+        .btn{
+            margin-right: 3px;
+        }
+    </style>
+
+    <script>
+        $(loadedHandler);
+        function loadedHander(){
+            $('button.btn').on("click", btnColor)
+        }
+
+        function btnColor(){
+            if($(this).hasClass('red')){
+                $('div.color_box').css('background-color', 'red')
+            }else if($(this.hasClass('blue'))){
+                $('div.color_box').css('background-color', 'blue')
+            }else if($(this).hasClass('yellow')){
+                $('div.color_box').css('background-color', 'yellow')
+            }else if($(this).hasClass('ccc')){
+                $('div.color_box').css('background-color', '#ccc')
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="color_box"></div>
+        <div class="button">
+            <button type="button" class="btn red">red</button>
+            <button type="button" class="btn blue">blue</button>
+            <button type="button" class="btn yellow">yellow</button>
+            <button type="button" class="btn ccc">#ccc</button>
+        </div>
+    <hr>
+    <div class="text">
+        <label>Color Code 입력 후 enter</label><input type="text" class = "typeText" placeholder="ff00ee">
+    </div>
+    <hr>
+    <div class="dropBox">
+        <select id="colorDrop">
+            <option class="colorDrop" value="red">Red</option>
+            <option class="colorDrop" value="blue">Blue</option>
+            <option class="colorDrop" value="orange">Orange</option>
+        </select>
+    </div>
+</body>
+</html>
