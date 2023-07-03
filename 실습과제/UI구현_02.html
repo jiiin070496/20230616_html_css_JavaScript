@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,58 +8,87 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <link rel="stylesheet" href="/resources/css/interpark_header.css">
     <style>
-        .color_box{
+        .colorbox {
             width: 186px;
             height: 186px;
-            margin-top: 10px;
-            margin-left: 2px;
-            margin-bottom: 30px;
-            border: 1px solid black;
+            margin: 10px 0 10px 2px;
+            background-color: thistle;
+            border: 5px solid black;
+            box-sizing: border-box;
         }
-        .btn{
+
+        .btn {
             margin-right: 3px;
         }
     </style>
-
     <script>
-        $(loadedHandler);
-        function loadedHander(){
-            $('button.btn').on("click", btnColor)
+        // $(loadedHandler); 가독성때문에 "윈도우.온로드" 로 사용
+        window.onload = loadedHandler;
+        function loadedHandler() {
+            //이벤트 등록
+            $(".btnsColor>button").on("click", btnColorClickHandler);
+            $(".btn.txtColor").on("click", txtColorClickHandler);
+            $("[type=text].txtColor").on("keyup", txtColorkeyUphandler);
+            $(".selectColor").on("change", colorChangeHandler);
         }
+        function btnColorClickHandler(e) { // event 객체가 e에 담김
+            console.log("btn color");
+            console.log(this);
+        }
+        function txtColorClickHandler(e) { // event 객체가 e에 담김
+            console.log("txtColor");
+            console.log("#" + $(this).prev().val());
+            $(".colorBox").css("background-color", "#" + $(this).val());
+        }
+        function txtColorkeyUphandler(e) { // event 객체가 e에 담김
+            // console.log("txtColorkeyUphandler");
+            // console.log(e.keycode);
+            console.log(e.key);
+            if(e.keycode == 13){
+                $(".colorBox").css("background-color", "#"+$(this).prev().val());
 
-        function btnColor(){
-            if($(this).hasClass('red')){
-                $('div.color_box').css('background-color', 'red')
-            }else if($(this.hasClass('blue'))){
-                $('div.color_box').css('background-color', 'blue')
-            }else if($(this).hasClass('yellow')){
-                $('div.color_box').css('background-color', 'yellow')
-            }else if($(this).hasClass('ccc')){
-                $('div.color_box').css('background-color', '#ccc')
             }
+
+        }
+        function colorChangeHandler(e) { // event 객체가 e에 담김
+            console.log("colorChange");
+            // this - select 요소 전체
+            // this.value는 선택한 option 요소의 value임
+            console.log(this.value); //or $(this).val();
+            $(".colorBox").css("background-color", $(this).val());
         }
     </script>
-
 </head>
+
 <body>
-    <div class="color_box"></div>
-        <div class="button">
-            <button type="button" class="btn red">red</button>
-            <button type="button" class="btn blue">blue</button>
-            <button type="button" class="btn yellow">yellow</button>
-            <button type="button" class="btn ccc">#ccc</button>
-        </div>
-    <hr>
-    <div class="text">
-        <label>Color Code 입력 후 enter</label><input type="text" class = "typeText" placeholder="ff00ee">
+    <div class="colorbox"></div>
+    <div class="btnsColor">
+        <button>red</button>
+        <button>blue</button>
+        <button>yellow</button>
     </div>
     <hr>
-    <div class="dropBox">
-        <select id="colorDrop">
-            <option class="colorDrop" value="red">Red</option>
-            <option class="colorDrop" value="blue">Blue</option>
-            <option class="colorDrop" value="orange">Orange</option>
+    <div>
+        #을 제외한 RGB 16진수 값을 작성하고, <br> ENTER키를 입력하거나 컬러적용 버튼을 눌러주세요.
+    </div>
+    <div>
+        <!-- form action 작성하지 않으면 자신의 페이지를 다시 refresh - reload 한 결과 -->
+        <!-- <form> -->
+            <label>Color Code 입력 후 enter : </label><input type="text" class="typeText" placeholder="ff00ee">
+            <!-- type 생략시 submit 임. -->
+            <button type="button" class="btn txtColor">컬러적용</button>
+        <!-- </form> -->
+    </div>
+    <hr>
+    <div>
+
+        <select class="selectColor">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="orange">Orange</option>
         </select>
+
     </div>
 </body>
+
 </html>

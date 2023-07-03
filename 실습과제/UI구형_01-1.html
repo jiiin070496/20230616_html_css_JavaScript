@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카페 포스기</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <link rel="stylesheet" href="/resources/css/reset.css">
+    <link href="/resources/css/reset.css" rel="stylesheet">
+    <!-- style 지정 - 각자 실습 -->
+    <!--  -->
 
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
         table{
             border: 1px solid black;
         }
@@ -23,47 +20,52 @@
             border: none;
         }
     </style>
-
     <script>
         $(loadedHandler);
-        function loadedHandler() {
-            //event 등록
+        function loadedHandler(){
+            // event 등록 
             $('.c').on("blur", cntBlurHandler);
             $("[type=button]").on("click", calcClickHandler);
-        };
+        }
 
+        // 각종 기능 함수들
         function cntBlurHandler(event){
-            $count = Number($(this).val());
-            $price = %(this).parent().prev.text();
-            $sum = $(this).parent().next().children().attr('value', $count * $price);
+            console.log(this);
+            console.log(event.target);  // event.target == this
+            console.log(event);
+            // 각자 실습 
+            console.log($(this).parent().prev().text());
+            console.log($(this).val());
+            $(this).parent().next().children('input.p').val(
 
-            //각자 실습
-            //number 사용
+            $(this).parent().prev().text() * $(this).val()
+            );
         };
-            function clickEventHandler() {
-            $sumCount = 0;
-            $sumPrice = 0;
-            $('.c').each(function() {
-                if(!isNaN($(this).val())) {
-                    $sumCount += parseInt($(this).val());
-                }
-            });
-        };
+        // 합계
+        $(".c").each(function(idx, item){
+            console.log(this);
+        });
+
+        $("#ctotalCnt").val();
+        $("#cTotalPrice").val();
+        function calcClickHandler(event){
+            console.log(this);
+            console.log(event.target);  // event.target == this
+            console.log(event);
+            // 각자 실습
+        }
     </script>
 </head>
-
 <body>
     <form>
-        <table>
-            <div class="info">
-                <tr>
-                    <th>메뉴</th>
-                    <th>가격</th>
-                    <th>수량</th>
-                    <th>합계</th>
-                </tr>
-            </div>
+        <table border="1">
             <tr>
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>합계</th>
+            </tr>
+            <tr> 
                 <td>아메리카노</td>
                 <td>2500</td>
                 <td><input type="text" name="c1" id="c1" class="c"></td>
@@ -83,17 +85,16 @@
             </tr>
             <tr>
                 <th colspan="2">합계</th>
-                <td><input type="text" name="cTotalCnt" id="cTotalCnt" class="c" readonly></td>
-                <td><input type="text" name="cTotalPrice" id="cTotalPrice" class="p" readonly></td>
+                <th><input type="text" name="cTotalCnt" id="cTotalCnt" class="c" readonly></th>
+                <th><input type="text" name="cTotalPrice" id="cTotalPrice" class="p" readonly></th>
             </tr>
             <tr>
                 <td colspan="4">
                     <input type="button" value="계산하기">
-                    <input type="reset">
+                    <input type="reset" >
                 </td>
             </tr>
         </table>
     </form>
 </body>
-
 </html>

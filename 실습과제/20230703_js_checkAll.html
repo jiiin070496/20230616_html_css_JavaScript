@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        .checkboxs{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>전체선택 : </label>
+        <input type="checkbox" id="allCheck">
+        <!-- <span>전체선택 : </span><input type="checkbox" id="allCheck"> -->
+    </div>
+    <div class="checkboxs">
+        <div>
+            <label id="id-1">id-1 : </label>
+            <input type="checkbox" id="id-1">
+        </div>    
+        <div>
+            <label id="id-2">id-2 : </label>
+            <input type="checkbox" id="id-2">
+        </div>    
+    </div>
+<script>
+    const itemCnt = 10; //const는 상수(java의 final), const로 선언된 변수는 값변경 안됨.
+    var htmlVal = "";
+    // `` = 백틱 backtick 안에 있는 코드 문자열형태로 만들어줌 - 변수 사용하고 싶을땐 $(변수명)
+    for(var i = 1; i<itemCnt; i++){
+        htmlVal += `
+        <div>
+            <label id="id-$(i)">id-$(i) : </label>
+            <input type="checkbox" id="id-$(i)">
+        </div>    
+            `;
+    }
+    $(".checkboxs").append(htmlVar);
+</script>
+
+</body>
+</html>
