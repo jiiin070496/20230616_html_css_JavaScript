@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI구현</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 400px;
+            background-color: #EDEDED;
+            border: 2px solid #D8DEE1;
+            margin: 50px 0 0 34%;
+        }
+
+        tr td {
+            padding: 5px;
+            height: 30px;
+        }
+
+        tr td {
+            height: 10px;
+        }
+
+        tr .join {
+            width: 35%;
+            font-weight: bold;
+        }
+
+        tr td.email {
+            padding: 0;
+            float: left;
+        }
+
+        tr td.email input {
+            width: 46%;
+        }
+
+        tr td.btn {
+            height: 50px;
+        }
+
+        tr td.tid {
+            padding-top: 40px;
+        }
+
+        tr td.addr {
+            padding-bottom: 40px;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px dashed #000;
+            background-color: #EDEDED;
+        }
+
+        .hint {
+            display: none;
+            color: gray;
+            font-size: 5px;
+        }
+
+        .hidden {
+            display: none;
+            color: gray;
+            font-size: 8px;
+        }
+
+        .required {
+            display: none;
+            color: gray;
+            font-size: 8px;
+        }
+
+        button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-weight: bold;
+            background-color: #C5E0B3;
+            font-size: 15px;
+        }
+
+        p {
+            padding: 5px;
+        }
+    </style>
+    <script>
+        window.onload = loadedHandler;
+        function loadedHandler() {
+            $("input").click(clearHandler);
+            $("[type=password]").click(inputClickHandler);
+            $("input.email, input.addr1, input.addr2").click(requiredCheckHandler);
+        }
+
+        function clearHandler() {
+            $(".hint").css("display", "none");
+            $(".hint").css("height", 0);
+            $(".hidden").css("display", "none");
+            $(".hidden").css("height", 0);
+            $(".required").css("display", "none");
+            $(".required").css("height", 0);
+        }
+
+        function inputClickHandler() {
+            $(".hint").css("display", "none");
+            $(".hint").css("height", 0);
+            $(".hidden").css("display", "none");
+            $(".hidden").css("height", 0);
+            $(".required").css("display", "none");
+            $(".required").css("height", 0);
+
+            var $hiddenElement = $(this).parents("tr").next().find(".hidden");
+            var $hintElement = $(this).parents("tr").next().find(".hint");
+
+
+            $hiddenElement.css("display", "table-cell");
+            $hiddenElement.css("height", "10px");
+            $hintElement.css("display", "table-cell");
+            $hintElement.css("height", "10px");
+        }
+
+        function requiredCheckHandler() {
+            $(".hint").css("display", "none");
+            $(".hint").css("height", 0);
+            $(".hidden").css("display", "none");
+            $(".hidden").css("height", 0);
+            $(".required").css("display", "none");
+            $(".required").css("height", 0);
+
+            var $mid = $("input.mid").val();
+            var $midHidden = $("input.mid").parents("tr").next().find(".hidden");
+            var $midRequired = $("input.mid").parents("tr").next().find(".required");
+            var $mpwd1 = $("input.mpwd1").val();
+            var $mpwd1Hidden = $("input.mpwd1").parents("tr").next().next().find(".hidden");
+            var $mpwd1Required = $("input.mpwd1").parents("tr").next().next().find(".required");
+            var $mpwd2 = $("input.mpwd2").val();
+            var $mpwd2Hidden = $("input.mpwd2").parents("tr").next().next().find(".hidden");
+            var $mpwd2Required = $("input.mpwd2").parents("tr").next().next().find(".required");
+
+            if ($mid == "") {
+                $midHidden.css("display", "table-cell");
+                $midHidden.css("height", "10px");
+                $midRequired.css("display", "table-cell");
+                $midRequired.css("height", "10px");
+            }
+            if ($mpwd1 == "") {
+                $mpwd1Hidden.css("display", "table-cell");
+                $mpwd1Hidden.css("height", "10px");
+                $mpwd1Required.css("display", "table-cell");
+                $mpwd1Required.css("height", "10px");
+            }
+            if ($mpwd2 == "") {
+                $mpwd2Hidden.css("display", "table-cell");
+                $mpwd2Hidden.css("height", "10px");
+                $mpwd2Required.css("display", "table-cell");
+                $mpwd2Required.css("height", "10px");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" method="post" id="frmJoin">
+        <table>
+            <tr>
+                <td class="join tid">아이디</td>
+                <td colspan="3" class="tid"><input type="text" class="mid"></td>
+            </tr>
+            <tr>
+                <td class="hidden"></td>
+                <td colspan="3" class="required">필수 입력 항목 입니다.</td>
+            </tr>
+            <tr>
+                <td class="join">패스워드</td>
+                <td colspan="3"><input type="password" class="mpwd1"></td>
+            </tr>
+            <tr>
+                <td class="hidden"></td>
+                <td colspan="3" class="hint">영문자 대/소문자, 특수문자, 숫자 포함 8~32자</td>
+            </tr>
+            <tr>
+                <td class="hidden"></td>
+                <td colspan="3" class="required">필수 입력 항목 입니다.</td>
+            </tr>
+            <tr>
+                <td class="join">패스워드 확인</td>
+                <td colspan="3"><input type="password" class="mpwd2"></td>
+            </tr>
+            <tr>
+                <td class="hidden"></td>
+                <td colspan="3" class="hint"></td>
+            </tr>
+            <tr>
+                <td class="hidden"></td>
+                <td colspan="3" class="required">필수 입력 항목 입니다.</td>
+            </tr>
+            <tr>
+                <td class="join">이메일</td>
+                <td colspan="3" class="email">
+                    <p><input type="text" class="email"><label>@</label><input type="text" class="email"></p>
+                </td>
+            </tr>
+            <tr>
+                <td class="join">주소</td>
+                <td colspan="3"><input type="text" class="addr1"></td>
+            </tr>
+            <tr>
+                <td class="join addr"></td>
+                <td colspan="3" class="addr"><input type="text" class="addr2"></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="btn"><button type="button">가 입</button></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
