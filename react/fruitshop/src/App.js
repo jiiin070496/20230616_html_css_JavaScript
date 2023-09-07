@@ -11,21 +11,21 @@ TODO info - id 활용해서 보기
 */
 
 function App() {
-  
+ 
   const [fruitList, setFruitList] = useState( // fruitList - array모양의 오브젝트
     [
       {
-        id:'1',
-        name : '기본이름1',
-        price : '기본값1',
-        count : '기본수량1'
+        id:'냄',
+        name : '사과',
+        price : '700원',
+        count : '1개'
       }
       ,
       {
-        id:'2',
-        name : '기본이름2',
-        price : '기본값2',
-        count : '기본수량2'
+        id:'쿵',
+        name : '멜론',
+        price : '14,800원',
+        count : '1개'
       }
     ] 
   );
@@ -33,9 +33,9 @@ function App() {
   const [newFruit, setNewFruit] = useState( //newFruit라는 이름의 저장공간 생성 선언
     {
       id : '',
-      name : '기본이름',
-      price : '기본값',
-      count : '기본수량'
+      name : '',
+      price : '',
+      count : ''
     }
   ); 
   //insertHandler
@@ -51,13 +51,13 @@ function App() {
   }
   //onChangeInput
   const onChangeInput = (event) => {
-    console.log(event.target);
-    const {name, value} = event.target;
-    console.log(name);
-    console.log(value);
-    setNewFruit({...newFruit,[name]:value}); //...newFruit - 원래있던 공간을 깊음복사 형태로
-    //input태그의 name
-  }
+    const { name, value } = event.target;
+    setNewFruit((newFruit) => ({
+      ...newFruit,
+      [name]: value
+    }));
+  };
+  
   //과일추가
   const InsertFruit = () =>{
     //과일추가
@@ -69,22 +69,30 @@ function App() {
         <nav>
           <ul>        
             <li><Link to="/info">과일 목록 보기</Link></li>
-            <li><Link to="/Home">메인으로</Link></li>
+            <li><Link to="/">메인으로</Link></li>
           </ul>
         </nav>
         <div>
           <form>
               <div>
+                <span>ID: </span>
+                <input type="text" onChange={onChangeInput} value={newFruit.id} 
+                  name="id" placeholder="사용자 아이디"></input>
+              </div>
+              <div>
                 <span>이름: </span>
-                <input type="text" onChange={onChangeInput} value={newFruit.name} name="name"></input>
+                <input type="text" onChange={onChangeInput} value={newFruit.name} 
+                  name="name" placeholder="과일명"></input>
               </div>
               <div>
                 <span>가격: </span>
-                <input type="text" onChange={onChangeInput} value={newFruit.price} name="price"></input>
+                <input type="text" onChange={onChangeInput} value={newFruit.price} 
+                  name="price" placeholder="가격"></input>
               </div>
               <div>
                 <span>단위: </span>
-                <input type="text" onChange={onChangeInput} value={newFruit.count} name="count"></input>
+                <input type="text" onChange={onChangeInput} value={newFruit.count} 
+                  name="count" placeholder="수량"></input>
               </div>
           </form>  
           <button onClick={insertHandler}><Link to="/list">추가</Link></button>
@@ -111,12 +119,13 @@ function App() {
         <ul>   
         <li><Link to="/info">과일 상세정보</Link></li>     
           <li><Link to="/insert">과일 추가</Link></li>
-          <li><Link to="/Home">메인으로</Link></li>
+          <li><Link to="/">메인으로</Link></li>
         </ul>
       </nav>
-      <table>
+      <table border="1">
         <thead>
           <tr>
+            <td>ID</td>             
             <td>이름</td>
             <td>가격</td>
             <td>수량</td>
@@ -129,6 +138,7 @@ function App() {
               console.log(fruit);
             return( // 실제로 화면에 뿌림
               <tr>
+                <td>{fruit.id}</td>
                 <td>{fruit.name}</td>
                 <td>{fruit.price}</td>
                 <td>{fruit.count}</td>
@@ -146,7 +156,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>       
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/list" element={<List />} />
             <Route path="/insert" element={<InsertFruit />} />
             <Route path="/delete" element={<DeleteFruit />} />
@@ -157,7 +167,7 @@ function App() {
     </BrowserRouter>
   );
 }
-//MainHome
+//mainHome
 const Home = () =>{ //arrow 함수
   //홈
   //과일목록보기
@@ -180,7 +190,6 @@ const Home = () =>{ //arrow 함수
 // const f3 = (data) => { console.log(); }
 // const f4 = data => { console.log(); }
 const f5 = () => { console.log(); }
-
 //목록삭제
 const DeleteFruit = ( )=>{
   return (
@@ -220,7 +229,7 @@ const InfoFruit = () =>{
         </table>
 
         <button><Link to="/list">이전으로</Link></button>        
-        <button><Link to="/Home">메인으로</Link></button>
+        <button><Link to="/">메인으로</Link></button>
 
     </>
   );
