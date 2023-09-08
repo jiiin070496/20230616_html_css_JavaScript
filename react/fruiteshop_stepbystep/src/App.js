@@ -65,10 +65,9 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {  // return () 에서 js 문법 사용을 위해 중괄호 사용
+              {
                 fruitList.map(
                   (fruit) => {
-                    // return () 에서 render하고 싶은 내용을 작성
                     return (
                       <tr key={fruit.name}>
                         <td>{fruit.name}</td>
@@ -85,55 +84,6 @@ function App() {
         </div>
       </>
     );
-  }
-
-  const onClickDeleteHandler = (name) => { //event.target -> this개념
-    // console.log(name);
-    const filteredFruitList =  fruitList.filter( (fruit) => fruit.name != name); //fruit 내가 짓는 이름
-    // 목록용 저장공간
-    setFruitList(filteredFruitList)
-  }
-
-  const onClickHandler = (event)=>{
-    // 유효성검사 -빈 칸
-    if(!newFruit.name || !newFruit.price || !newFruit.amount){
-      alert("모든 값을 입력해주세요.")
-      return;
-    }
-    // 유효성검사 - 같은 이름 없도록
-    const idExist = fruitList.some( (fruit)=>fruit.name == newFruit.name );
-    if(idExist){
-      alert("이미 등록된 과일이름입니다. 이름을 다시 입력해주세요.")
-
-      // 이름 입력란을 공란으로 만들기
-      setNewFruit({...newFruit, ['name']:''});
-      return;
-    }
-    console.log("꼭 확인 !!! 클릭");
-    console.log(event.target); // js에서 event 발생하면 매개인자로 event 전달됨. 그것을 확인함.!!!
-    console.log("---------insert");
-    console.log(newFruit);
-    // 추가기능용 저장공간 newFruit 을 목록용 저장공간 fruitList 에 추가하기
-    setFruitList([...fruitList, newFruit]);
-
-    // 이름, 가격, 수량 입력란을 공란으로 만들기
-    setNewFruit({ name : "", price : "", amount : "" });
-  }
-
-  const onChangeHandler = (event)=>{
-    console.log("꼭 확인 !!! 변경");
-    console.log(event.target);  // js에서 event 발생하면 매개인자로 event 전달됨. 그것을 확인함.!!!
-    console.log(event.target.name);
-    console.log(event.target.value);
-    const {name, value} = event.target;
-    console.log(name);
-    console.log(value);
-    console.log("---------s");
-    console.log(newFruit);
-    // 추가기능용 저장공간 newFruit 에 값변경
-    setNewFruit({...newFruit, [name]:value});
-    console.log(newFruit);  // 변경됨 바로 확인 안됨!!
-    console.log("---------e");
   }
 
   const Insert = ()=>{
@@ -155,6 +105,43 @@ function App() {
         <List></List>
       </>
     );
+  }
+
+  const onClickDeleteHandler = (name) => {
+    const filteredFruitList =  fruitList.filter( (fruit) => fruit.name !== name); //fruit 내가 짓는 이름
+    setFruitList(filteredFruitList) // 목록용 저장공간
+  }
+
+  const onClickHandler = (event)=>{
+    // 유효성검사 -빈 칸
+    if(!newFruit.name || !newFruit.price || !newFruit.amount){
+      alert("모든 값을 입력해주세요.")
+      return;
+    }
+    // 유효성검사 - 같은 이름 없도록
+    const idExist = fruitList.some( (fruit)=>fruit.name === newFruit.name );
+    if(idExist){
+      alert("이미 등록된 과일이름입니다. 이름을 다시 입력해주세요.")
+
+      // 이름 입력란을 공란으로 만들기
+      setNewFruit({...newFruit, 'name':''});
+      return;
+    }
+    console.log("꼭 확인 !!! 클릭");
+    console.log(event.target); // js에서 event 발생하면 매개인자로 event 전달됨. 그것을 확인함.!!!
+    console.log("---------insert");
+    console.log(newFruit);
+    // 추가기능용 저장공간 newFruit 을 목록용 저장공간 fruitList 에 추가하기
+    setFruitList([...fruitList, newFruit]);
+
+    // 이름, 가격, 수량 입력란을 공란으로 만들기
+    setNewFruit({ name : "", price : "", amount : "" });
+  }
+
+  const onChangeHandler = (event)=>{
+    const {name, value} = event.target;
+    // 추가기능용 저장공간 newFruit 에 값변경
+    setNewFruit({...newFruit, [name]:value});
   }
 
   return (
