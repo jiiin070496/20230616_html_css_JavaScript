@@ -29,6 +29,7 @@ function App() {
       }
     ] 
   );
+
   //useState
   const [newFruit, setNewFruit] = useState( //newFruit라는 이름의 저장공간 생성 선언
     {
@@ -38,6 +39,7 @@ function App() {
       count : ''
     }
   ); 
+
   //insertHandler
   const insertHandler = () =>{
     console.log("insertHandler 함수실행");
@@ -49,6 +51,7 @@ function App() {
     //...fruitList - 원래있던 공간을 깊음복사 형태로
     console.log(fruitList);
   }
+
   //onChangeInput
   const onChangeInput = (event) => {
     const { name, value } = event.target;
@@ -57,6 +60,13 @@ function App() {
       [name]: value
     }));
   };
+  
+  const onClickDeleteHandler = (name) => { //event.target -> this개념
+    // console.log(name);
+    const filteredFruitList =  fruitList.filter( (fruit) => fruit.name != name); //fruit 내가 짓는 이름
+    // 목록용 저장공간
+    setFruitList(filteredFruitList)
+  }
   
   //과일추가
   const InsertFruit = () =>{
@@ -100,6 +110,7 @@ function App() {
       </>
     );
   }
+
   //과일목록
   const List = (props) =>{
     // const n1 = props.n1; 이것을 줄여서
@@ -122,7 +133,7 @@ function App() {
           <li><Link to="/">메인으로</Link></li>
         </ul>
       </nav>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <td>ID</td>             
@@ -134,14 +145,15 @@ function App() {
         <tbody>
           {  // 자바 스크립트 작성하고 싶을때
             /* fruit - 내가 짓는 이름 */
-            fruitList.map( (fruit)=>{ //fruitList가 반복해서 돎. each문과 비슷
-              console.log(fruit);
+            fruitList.map( 
+              (fruit) => { //fruitList가 반복해서 돎. each문과 비슷
             return( // 실제로 화면에 뿌림
               <tr>
                 <td>{fruit.id}</td>
                 <td>{fruit.name}</td>
                 <td>{fruit.price}</td>
                 <td>{fruit.count}</td>
+                <td><button onClick={ () => {onClickDeleteHandler(fruit.name);} }>삭제</button></td>
               </tr>
             )
             } ) // map
@@ -151,23 +163,8 @@ function App() {
       </>
     );
   }
-  //return(<BrowserRouter>)
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>       
-            <Route path="/" element={<Home />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/insert" element={<InsertFruit />} />
-            <Route path="/delete" element={<DeleteFruit />} />
-            <Route path="/update" element={<UpdateFruit />} />
-            <Route path="/info" element={<InfoFruit />} />      
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
-}
-//mainHome
+
+  //mainHome
 const Home = () =>{ //arrow 함수
   //홈
   //과일목록보기
@@ -184,12 +181,14 @@ const Home = () =>{ //arrow 함수
     </>
   );
 }
+
 // const f0 = function(){ console.log(); }
 // const f1 = function(data, a){ console.log(); }
 // const f2 = (data, a) => { console.log(); console.log(); }
 // const f3 = (data) => { console.log(); }
 // const f4 = data => { console.log(); }
 const f5 = () => { console.log(); }
+
 //목록삭제
 const DeleteFruit = ( )=>{
   return (
@@ -198,12 +197,14 @@ const DeleteFruit = ( )=>{
     </>
   );
 }
+
 //목록수정
 const UpdateFruit = () =>{
   return (
     <h1>과일 정보 수정</h1>
   );
 }
+
 //목록상세
 const InfoFruit = () =>{
   return (
@@ -232,6 +233,24 @@ const InfoFruit = () =>{
         <button><Link to="/">메인으로</Link></button>
 
     </>
+  );
+}
+
+
+  //return(<BrowserRouter>)
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Routes>       
+            <Route path="/" element={<Home />} />
+            <Route path="/list" element={<List />} />
+            <Route path="/insert" element={<InsertFruit />} />
+            <Route path="/delete" element={<DeleteFruit />} />
+            <Route path="/update" element={<UpdateFruit />} />
+            <Route path="/info" element={<InfoFruit />} />      
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
