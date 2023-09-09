@@ -7,9 +7,7 @@ function App() {
   // 추가기능(input입력된 값)에서 사용할 저장공간
   const [newFruit, setNewFruit]  = useState(
     {
-      name : "",
-      price : "",
-      amount : ""
+      name : ""
     }
   );
 
@@ -64,7 +62,7 @@ function App() {
                     return (
                       <tr>
                         <td>{fruit.name}</td>
-                        <td><button onClick={ () => {console.log("aaa"); onClickDeleteHandler(fruit.name);}  }>삭제</button></td>
+                        <td><button onClick={ () => { onClickDeleteHandler(fruit.name);}}>삭제</button></td>
                       </tr>
                     );
                   }
@@ -103,7 +101,7 @@ function App() {
 
   const onClickHandler = (event)=>{
     // 유효성검사 -빈 칸
-    if(!newFruit.name || !newFruit.price || !newFruit.amount){
+    if( !newFruit.name ){
       alert("모든 값을 입력해주세요.")
       return;
     }
@@ -118,7 +116,7 @@ function App() {
     setFruitList([...fruitList, newFruit]);
 
     // 이름, 가격, 수량 입력란을 공란으로 만들기
-    setNewFruit({ name : "", price : "", amount : "" });
+    setNewFruit({ name : ""});
   }
 
   const onChangeHandler = (event)=>{
