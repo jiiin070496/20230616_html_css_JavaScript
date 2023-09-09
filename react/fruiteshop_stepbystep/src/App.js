@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function App() {
@@ -17,16 +17,11 @@ function App() {
   const [fruitList, setFruitList] = useState(
     [
       {
-        name : "수박",
-        price : "10000",
-        amount : "20"
+        name : "수박"
       },
       {
-        name : "참외",
-        price : "3000",
-        amount : "100"
+        name : "참외"
       }
-      // 이 부분에 추가 될 예정
     ]
   );
 
@@ -60,8 +55,6 @@ function App() {
             <thead>
               <tr>
                 <th>이름</th>
-                <th>가격</th>
-                <th>수량</th>
               </tr>
             </thead>
             <tbody>
@@ -69,10 +62,8 @@ function App() {
                 fruitList.map(
                   (fruit) => {
                     return (
-                      <tr key={fruit.name}>
+                      <tr>
                         <td>{fruit.name}</td>
-                        <td>{fruit.price}</td>
-                        <td>{fruit.amount}</td>
                         <td><button onClick={ () => {console.log("aaa"); onClickDeleteHandler(fruit.name);}  }>삭제</button></td>
                       </tr>
                     );
@@ -98,8 +89,6 @@ function App() {
         </nav>
         <div>
           <div><span>이름</span><input onChange={onChangeHandler} name="name" value={newFruit.name}></input></div>
-          <div><span>가격</span><input onChange={onChangeHandler} name="price" value={newFruit.price}></input></div>
-          <div><span>수량</span><input onChange={onChangeHandler} name="amount" value={newFruit.amount}></input></div>
           <div><button onClick={onClickHandler} >등록</button></div>
         </div>
         <List></List>
@@ -122,15 +111,9 @@ function App() {
     const idExist = fruitList.some( (fruit)=>fruit.name === newFruit.name );
     if(idExist){
       alert("이미 등록된 과일이름입니다. 이름을 다시 입력해주세요.")
-
-      // 이름 입력란을 공란으로 만들기
       setNewFruit({...newFruit, 'name':''});
       return;
     }
-    console.log("꼭 확인 !!! 클릭");
-    console.log(event.target); // js에서 event 발생하면 매개인자로 event 전달됨. 그것을 확인함.!!!
-    console.log("---------insert");
-    console.log(newFruit);
     // 추가기능용 저장공간 newFruit 을 목록용 저장공간 fruitList 에 추가하기
     setFruitList([...fruitList, newFruit]);
 
