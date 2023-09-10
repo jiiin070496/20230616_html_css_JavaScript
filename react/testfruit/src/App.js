@@ -1,70 +1,115 @@
+
 import { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 function App() {
-  const [ newFruit, setNewFruit ] = useState(
+  const [fruitList, setFruitList] = useState(
+    [
+      {
+        name:"스"
+      },
+      {
+        name:"각"
+      }
+    ]
+  );
+  const [newFruit, setNewFruit] = useState(
     {
-      name=""
+      name:""
     }
   );
-
-  const [friutList, setFruitList] = useState(
-    [
-      {name : "사과"}
-    ]
-  )
-
 
   const Home = () => {
     return(
       <>
-      <h1>홈이다 이 쫘시가</h1>
-      <nav>
-        <ul>
-          <li><Link to="/insert">추가할거다 짜시가</Link></li>
-          <li><Link to="/list">목록볼거다 짜시가</Link></li>
-        </ul>
-      </nav>
+        <h1>홈임니돵</h1>
+        <nav>
+          <ul>
+            <li><Link to="/insert">추가</Link></li>
+            <li><Link to="/list">목록</Link></li>
+          </ul>
+        </nav>
       </>
-    )
+    );
   }
-
   const Insert = () => {
     return(
       <>
-      <h1>인썰트다이쫘시가</h1>
-      <nav>
-        <ul>
-          <li><Link to="/list">목록볼거다짜시가</Link></li>
-          <li><Link to="/">홈으로갈거다짜시가</Link></li>
-        </ul>
-      </nav>
+        <h1>추가임니돵</h1>
+        <nav>
+          <ul>
+            <li><Link to="/">메인</Link></li>
+            <li><Link to="/list">목록</Link></li>
+          </ul>
+        </nav>
+        <div>
+          <div>
+            <span>이름</span>
+            <input onChange={onChangeHandler} name="name" value={newFruit.name}></input>
+          </div>
+          <div><button onClick={onClickHandler}>등록</button></div>
+        </div>
       </>
     );
   }
-  const List = () => {
+  const List = () => { 
     return(
       <>
-      <h1>리스트다이쫘시가</h1>
-      <nav>
-        <ul>
-          <li><Link to="/insert">추가할거다짜시가</Link></li>
-          <li><Link to="/">홈으로갈거다짜시가</Link></li>
-        </ul>
-      </nav>
+        <h1>목록임니돵</h1>
+        <nav>
+          <ul>
+            <li><Link to="/">메인</Link></li>
+            <li><Link to="/insert">추가</Link></li>
+          </ul>
+        </nav>
+        <table>
+          <thead>
+            <tr>
+              <th>이름</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              fruitList.map(
+                (fruit) => {
+                  return(
+                    <tr>
+                      <td>{fruit.name}</td>
+                      <td><button onClick={ () => {onClickDeletHandler(fruit.name);} }>삭제</button></td>
+                    </tr>
+                  );
+                }
+              )
+            }
+          </tbody>
+        </table>
       </>
     );
   }
 
-  return (
+  const onClickDeletHandler = (name) => {
+    const filteredFruitList = fruitList.filter( (fruit) => fruit.name !== name );
+    setFruitList(filteredFruitList);
+  }
+  const onClickHandler = (event) => {
+    setFruitList([...fruitList, newFruit]);
+    setNewFruit({name : ""});
+  }
+  const onChangeHandler = (event) => {
+    const {name, value} = event.target;
+    setNewFruit({ ...newFruit, [name]:value });
+  }
+
+
+  return(
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={ <Home /> } />  
-          <Route path="/insert" element={ <Insert></Insert> } />  
-          <Route path="/list" element={ <List></List> } />
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/insert" element={<Insert></Insert>}></Route>
+          <Route path="/list" element={<List></List>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

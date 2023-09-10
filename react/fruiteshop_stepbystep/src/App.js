@@ -23,7 +23,6 @@ function App() {
     ]
   );
 
-
   const Home = ()=>{
     return (
       <>
@@ -86,7 +85,10 @@ function App() {
           </ul>
         </nav>
         <div>
-          <div><span>이름</span><input onChange={onChangeHandler} name="name" value={newFruit.name}></input></div>
+          <div>
+            <span>이름</span>
+            <input onChange={onChangeHandler} name="name" value={newFruit.name}></input>
+          </div>
           <div><button onClick={onClickHandler} >등록</button></div>
         </div>
         <List></List>
