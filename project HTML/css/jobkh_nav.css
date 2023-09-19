@@ -1,0 +1,506 @@
+/* ===== nav css 시작 =====*/
+/* nav 안 div point 크기 설정 */
+#point {
+    background-color: #e2eaf3;
+    display: flex;
+    width: 1260px;
+    height: 420px;
+    overflow: hidden;
+}
+
+/* nav 왼쪽 사이즈 */
+#point .point-left {
+    width: 70%;
+}
+
+/* nav 오른쪽 사이즈 */
+#point .point-right {
+    width: 30%;
+    padding: 10px;
+}
+
+/* active 되면 화면 보이게 */
+.tab-cont .active {
+    display: flex;
+}
+
+/* active 안되면 화면 안보이게 */
+.tab-cont:not(.active) {
+    display: none;
+}
+
+/* Swiper wrapper 사이즈 */
+.wrap-menu {
+    display: flex;
+    height: 400px;
+}
+
+/* Swiper 슬라이더 스타일 */
+.sw-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+.slide-box {
+    text-align: center;
+    font-size: 16px;
+    background: #e2eaf3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+/* swiper 버튼 스타일 */
+#point .point-left .match-slide .swiper-button-prev {
+    left: 0px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(191,203,216,.3);
+    background-image: url(../images/prev_button.svg);
+    background-repeat: no-repeat;
+    background-position: 16px;
+    border: 1px solid rgba(0,0,0,0);
+    background-size: auto;
+    backdrop-filter: blur(5px);
+}
+
+#point .point-left .match-slide .swiper-button-next {
+    right: 0px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0);
+    background-size: auto;
+    background-color: rgba(191,203,216,.3);
+    background-image: url(../images/next_button.svg);
+    background-repeat: no-repeat;
+    background-position: 19px;
+    backdrop-filter: blur(5px);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+#point .point-left .match-slide .swiper-button-next:hover,
+#point .point-left .match-slide .swiper-button-prev:hover {
+    background-color: #fff;
+    border: 1.5px solid blue;
+}
+
+/* 박스 저장 공간 */
+#point .box-lst {
+    display: flex;
+    width: 95%;
+    height: 100%;
+    margin: 10px;
+    text-align: left;
+    justify-content: center;
+}
+
+/* 박스 크기 */
+#point .box-lst .box {
+    position: relative;
+    width: 200px;
+    height: 165px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    background-color: #fff;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 세로 2배 박스 */
+div.box-double {
+    position: relative;
+    width: 200px;
+    height: 335px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 세로 2배 박스 이미지용 */
+div.box-img {
+    width: 200px;
+    height: 335px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 5px;
+    border-radius: 8px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+
+/* 박스안 폰트 및 테두리 설정 */
+span.bdgs {
+    border-radius: 8px;
+    font-size: 11px;
+    margin: 5px;
+}
+
+span.bdgs > span.ut-bdg {
+    width:100%;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/* 박스안 ut-bdg a~s까지 테두리, 배경색, 폰트색 설정 */
+span.bdgs > span.a {
+    border: 0.5px solid rgba(42,142,251,.5);
+    color: #2a8efb;
+    background-color: #f2f8ff;
+}
+
+span.bdgs > span.b {
+    border: 0.5px solid rgba(198,142,0,.5);
+    color: #c68e00;
+    background-color: #fffbf1;
+}
+
+span.bdgs > span.c {
+    border: 0.5px solid rgba(24,204,139,.5);
+    background-color: #f2fcff;
+    color: #18cc8b;
+}
+
+span.bdgs > span.d {
+    border: 0.5px solid rgba(255,80,27,.5);
+    background: #fff8f6;
+    color: #ff501b;
+}
+
+span.bdgs > span.e {
+    color: #1f429d;
+    background: #f2f6ff;
+    border: 0.5px solid rgba(31,66,157,.5);
+}
+
+span.bdgs > span.i {
+    color: #00a1ef;
+    background: #f4fcff;
+    border: 0.5px solid rgba(0,161,239,.5);
+}
+
+span.bdgs > span.j {
+    color: #1ab0ba;
+    background: #f2feff;
+    border: 0.5px solid rgba(26,176,186,.5);
+}
+
+span.bdgs > span.k {
+    color: #7ba621;
+    background: #fafff0;
+    border: 0.5px solid rgba(123,166,33,.5);
+}
+
+span.bdgs > span.l {
+    color: #be8866;
+    background: #fff9f5;
+    border: 0.5px solid rgba(190,136,102,.5);
+}
+
+span.bdgs > span.m {
+    color: #1b7794;
+    background: #f1fcff;
+    border: 0.5px solid rgba(27,119,148,.5);
+}
+
+span.bdgs > span.n {
+    color: #3748da;
+    background: #f7f7ff;
+    border: 0.5px solid rgba(55,72,218,.5);
+}
+
+span.bdgs > span.o {
+    color: #1b76ff;
+    background: #f4f9ff;
+    border: 0.5px solid rgba(27,118,255,.5);
+}
+
+span.bdgs > span.p {
+    color: #d6103f;
+    background: #fff5f8;
+    border: 0.5px solid rgba(214,16,63,.5);
+}
+
+span.bdgs > span.q {
+    color: #de8500;
+    background: #fff9f0;
+    border: 0.5px solid rgba(222,133,0,.5);
+}
+
+span.bdgs > span.r, span.bdgs > span.s {
+    color: #7645b5;
+    background: #faf7ff;
+    border: 0.5px solid rgba(118,69,181,.5);
+}
+
+/* 2배 박스안 제목 폰트 설정 */
+span.cate {
+    font-size: 16px;
+    color: #171717;
+    font-weight: bold;
+    overflow: hidden;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* 박스 h4 태그 폰트 설정 및 크기 설정 */
+.box h4.box-tit {
+    height: 50%;
+    font-size: 15px;
+    font-weight: bold;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* 박스 하단 폰트 설정 */
+span.box-bot {
+    font-size: 12px;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* 박스 하단 일부 폰트 색 변경 */
+span.box-bot > span.infogray {
+    color: gray;
+}
+
+/* 기업·연봉 연봉 검색 순위 박스 설정 */
+ul.ms-ranking {
+    height: auto;
+    margin-top: 10px;
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 25px;
+}
+
+/* 기업·연봉 연봉 검색 순위 기업명 폰트 변경 */
+span.rank-name {
+    font-weight: bold;
+}
+
+/* 2배 박스 h4 태그 폰트 설정 및 크기 설정 */
+div.box-double h4.box-tit {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* 2배 이미지 박스 h4 태그 폰트 설정 및 크기 설정 */
+div.box-img h4.box-tit {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* 취업톡톡 내용 폰트 및 내용 안넘치게 설정 */
+span.post-txt {
+    display: -webkit-box;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    height: 125px;
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 메뉴 버튼 */
+.tab-menu {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.tab-menu > ul {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    align-items: flex-start;
+}
+
+.tab-menu .tab-menu1 {
+    width: 80%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.tab-menu .tab-menu1 li:first-child {
+    margin-left: 0;
+}
+.tab-menu .tab-menu1 li {
+    position: relative;
+    margin-left: 25px;
+}
+
+
+.tab-menu .tab-menu1 .active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.tab-menu .tab-menu1:not(.active) {
+    display: none;
+}
+
+.tab-menu .tab-menu2 {
+    width: 30%;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.tab-menu2 li {
+    width: 100px;
+    margin: 5px -7px;
+    border-radius: 100px;
+    background-color: #b8c8dc;
+    color: #000;
+    font-weight: bold;
+}
+
+.tab-menu2 a, .tab-menu2 a:hover {
+    color: #fff;
+}
+
+.tab-menu2 .active {
+    background-color: #00f;
+    color: #fff;
+    z-index: 10;
+}
+
+div.noti-slide {
+    overflow: hidden;
+}
+
+/* 공지 설정 */
+.verti > .noti {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.verti .noti li a {
+    text-decoration: none;
+}
+
+.notice-wrap {
+    display: flex;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.notice-wrap > .tit {
+    width: 15%;
+}
+
+ul.noti-ul {
+    padding: 0 5px;
+}
+
+/* 공지 스와이퍼 기능 */
+.noti-slide .verti {
+    width: 100%;
+    height: 50px;
+}
+
+li.noti {
+    display: flex;
+}
+
+/* 취업성공 툴 사이즈 */
+div.tool {
+    width: 400px; /* 원하는 너비 설정 */
+}
+
+/* 취업 성공 툴 메뉴 그리드로 2x2 묶음 */
+ul.menu {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    grid-template-columns: repeat(2, 40%); /* 2개의 열로 구성 */
+    grid-template-rows: repeat(2, auto); /* 2개의 행으로 구성 */
+    gap: 10px; /* 아이템 간의 간격 설정 */
+}
+
+/* 취업 성공 툴 메뉴 화면 표기 */
+li.menu-item {
+    height: 30px; /* 원하는 높이 설정 */
+    background-color: #fff; /* 랜덤한 색상을 위해 이 부분은 JavaScript로 처리할 수 있습니다. */
+    border-radius: 8px;
+    list-style: none; /* 기본 목록 마커 제거 */
+}
+
+li.menu-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #000; /* 링크 텍스트 색상 설정 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+/* 추천 서비스 스크롤 기능 추가 */
+div.blind {
+    max-height: 110px; /* 원하는 높이 설정 */
+    overflow-y: scroll; /* 세로 스크롤 표시 */
+}
+
+/* 서비스 박스 - 취업 성공 툴, 추천 서비스 보더로 묶기 */
+.service-box {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.service-box .tit {
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+div.blind p {
+    margin: 5px;
+    padding: 5px;
+}
+
+div.blind a {
+    border: 1px solid #000;
+    border-radius: 100px;
+    padding: 5px;
+}
+
+/* 이직은 원픽 테두리 수정 */
+div.blind .onpick {
+    border: 2px solid yellowgreen;
+}
+/* ===== nav css 끝 =====*/

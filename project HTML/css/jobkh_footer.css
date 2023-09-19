@@ -1,0 +1,548 @@
+/* footer 크기설정 */
+#footer,
+.footer {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    width: 100%;
+    margin: 40px auto 0px;
+    background: #fff;
+    border-top: 1px solid #ddd
+}
+#footer .copyright,
+.footer .copyright {
+    margin: 0px;
+    padding: 23px 0px 30px
+}
+
+/* footer main, footer wrap 설정 */
+.footer--main .footer__wrap {
+    max-width: 1260px;
+}
+.footer__wrap {
+    width: 100%;
+    margin: 0 auto
+}
+
+/* footer notice 공간설정 */
+.footer__notice {
+    position: relative;
+    overflow: hidden;
+    height: 53px;
+    border: 1px solid #ebebeb;
+    background: #f6f7f9;
+    vertical-align: top
+}
+
+/* 공지사항 */
+.footer__notice-title {
+    display: inline-block;
+    width: 64px;
+    height: 100%;
+    margin: 0px 0px 0px 20px;
+    font-weight: bold;
+    box-sizing: border-box
+}
+.footer__notice-title a {
+    color: #000;
+    font-size: 12px
+}
+.footer__notice-title a:hover {
+    text-decoration: underline
+}
+
+/* 공지사항 뒷 내용 */
+.footer__notice-text {
+    display: inline-block;
+
+    box-sizing: border-box
+}
+.footer__notice-text a {
+    color: #000;
+    font-size: 12px
+}
+.footer__notice-text a:hover {
+    color: #000
+}
+.footer__notice-text .ellipsis {
+    display: inline-block;
+    max-width: 350px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    letter-spacing: -0.5px
+}
+.footer__notice-text .ellipsis:hover {
+    text-decoration: underline
+}
+.footer__notice-text em {
+    display: inline-block;
+    color: #888;
+    letter-spacing: -0.5px;
+    vertical-align: top
+}
+
+/* 서비스 리스트 설정 */
+.footer__notice .list-service {
+    position: absolute;
+    right: 66px;
+    top: 1px
+}
+.footer__notice .list-service:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.footer__notice .list-service li {
+    position: relative;
+    float: left;
+    line-height: 53px;
+    padding-right: 15px
+}
+.footer__notice .list-service li:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -5.5px;
+    right: 7px;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 11px;
+    background: #e0e0e0
+}
+.footer__notice .list-service li a {
+    font-size: 12px;
+    color: #333;
+    letter-spacing: -0.5px
+}
+.footer__notice .list-service li a:hover {
+    text-decoration: underline;
+}
+
+/* notice wrap 공간설정 */
+.footer__notice-wrap {
+    width: 630px;
+    height: 100%;
+    line-height: 53px;
+    font-size: 0
+}
+
+/* list service 옆 더보기 */
+.footer__notice_service {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    height: 53px;
+    line-height: 53px;
+    font-size: small;
+    background: #f6f7f9
+}
+.footer__notice_service a {
+    color: #000;
+    font-weight: bold
+}
+.footer__notice_service a:hover {
+    text-decoration: underline
+}
+.footer__notice_service a::after {
+    content: "";
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    width: 6px;
+    height: 10px;
+    margin-left: 6px;
+    background-position: center;
+    -moz-background-size: 140%;
+    background-size: 140%;
+    vertical-align: middle
+}
+
+/* footer servise 설정(회사소개) */
+.footer__service {
+    margin: 20px 0px 25px 0px;
+    text-align: center
+}
+.footer__service li {
+    display: inline-block;
+    margin: 0 15px
+}
+.footer__service li a {
+    color: #000;
+    font-size: 14px
+}
+.footer__service li a:hover {
+    text-decoration: underline
+}
+
+/* footer help(고객센터) */
+.footer__help {
+    font-size: small;
+    margin-bottom: 7px;
+    color: #888;
+    text-align: center
+}
+.footer__help-wrap {
+    display: inline-block
+}
+.footer__help-wrap::before {
+    content: "l";
+    display: inline-block;
+    font-family: "\B3CB\C6C0", dotum, sans-serif;
+    color: #ccc;
+    margin: 0 7px
+}
+.footer__help-wrap--working-hour::before {
+    display: none
+}
+.footer__help-wrap--footer__consult {
+    position: relative;
+    top: -2px
+}
+.footer__help-wrap--footer__consult::before {
+    vertical-align: -2px
+}
+
+/* footer helper title설정 */
+.footer__help-title {
+    display: inline-block
+}
+.footer__help-title::after {
+    content: ": ";
+    display: inline-block;
+    font-family: "\B3CB\C6C0", dotum, sans-serif;
+    margin-left: 3px
+}
+
+/* footer helper text설정 */
+.footer__help-text {
+    display: inline-block
+}
+.footer__help-text span {
+    letter-spacing: 0
+}
+.footer__help--icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+    background-image: url("https://i.jobkorea.kr/content/images/personal/spr_personal.png?2021032200");
+    background-repeat: no-repeat;
+    background-position: -150px 0;
+}
+
+/* 이메일 */
+.footer__help-text>a.footer__help-link {
+    color: #888;
+    text-decoration: none;
+    letter-spacing: 0px
+}
+.footer__help-text>a.footer__help-link:hover {
+    text-decoration: underline
+}
+ /* 톡톡상담 */
+.footer__help--icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 0;
+    vertical-align: middle;
+    background-position: -150px 0px
+}
+.footer__help--text {
+    vertical-align: middle;
+    color: #888
+}
+.footer__help--text:hover {
+    text-decoration: underline
+}
+
+/* SNS */
+.skip{
+    position: absolute !important;
+    top: -5000em;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    font-size: 0;
+}
+.footer__sns {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px
+}
+.footer__sns::before {
+    content: "l";
+    display: inline-block;
+    font-family: "\B3CB\C6C0", dotum, sans-serif;
+    color: #ccc;
+    margin: 0px 5px;
+    vertical-align: -2px
+}
+.footer__sns-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 6px
+}
+.footer__sns-item:first-child {
+    margin-left: 0px
+}
+.footer__sns-item a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    background-image: url("https://i.jobkorea.kr/content/images/personal/spr_personal.png?2021032200");
+    background-repeat: no-repeat;
+}
+ /* SNS 위치 */
+.footer__sns-item--blog {
+    background-position: 0 0px
+}
+.footer__sns-item--post {
+    background-position: -30px 0px
+}
+.footer__sns-item--facebook {
+    background-position: -60px 0px
+}
+.footer__sns-item--instagram {
+    background-position: -90px 0px
+}
+.footer__sns-item--youtube {
+    background-position: -120px 0px
+}
+
+/* 회사정보 설정 */
+.footer__company {
+    position: relative;
+    max-width: 860px;
+    margin: 0px auto;
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: 0;
+    letter-spacing: -0.5px;
+    box-sizing: border-box
+}
+.footer__company-item {
+    display: inline-block;
+    zoom: 1;
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: #888;
+    vertical-align: top
+}
+.footer__company-item::before {
+    content: "l";
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    font-family: dotum, "\B3CB\C6C0", sans-serif;
+    color: #ccc;
+    margin: 0 8px
+}
+.footer__company-item--business .business-button {
+    display: inline-block;
+    vertical-align: middle;
+    width: 92px;
+    height: 17px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 15px;
+    font-size: 11px;
+    color: #888;
+    letter-spacing: -0.77px;
+    margin-top: -2px;
+    margin-left: 8px
+}
+.footer__company-item--address::before {
+    content: ""
+}
+.footer__company-item--report::before {
+    content: ""
+}
+
+/* AWARD 설정 */
+.footer__award {
+    position: relative;
+    padding: 18px 0 18px 7px;
+    border-top: 1px solid #ebebeb
+}
+.footer__award-item {
+    float: left;
+    color: #333
+}
+.footer__award-item a {
+    position: relative;
+    display: block;
+    padding: 18px 0px 4px 0px;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.5px
+}
+.footer__award-item a::before {
+    content: "";
+    position: absolute;
+    background-image: url("https://i.jobkorea.kr/content/images/main/footer_spr_award_01.png?v202205161");
+    vertical-align: top
+}
+.footer__award-item a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+/* award 네번째 */
+.footer__award-item--fav {
+    width: 235px
+}
+.footer__award-item--fav a {
+    padding-left: 49px
+}
+.footer__award-item--fav a::before {
+    top: -5px;
+    left: 6px;
+    width: 40px;
+    height: 54px;
+    background-position: -123px -50px
+}
+
+/* award 마지막 */
+.footer__award-item--kict {
+    width: 230px
+}
+.footer__award-item--kict a {
+    padding-left: 50px
+}
+.footer__award-item--kict a::before {
+    top: 0px;
+    left: 0px;
+    width: 42px;
+    height: 43px;
+    background-position: -236px 0px
+}
+
+/* award 첫번째 */
+.footer__award-item--kbpi {
+    width: 216px
+}
+.footer__award-item--kbpi a {
+    padding-left: 32px
+}
+.footer__award-item--kbpi a::before {
+    top: 2px;
+    left: -20px;
+    width: 40px;
+    height: 43px
+}
+
+/* award 세번째 */
+.footer__award-item--ismsp {
+    width: 280px
+}
+.footer__award-item--ismsp a {
+    padding-left: 63px
+}
+.footer__award-item--ismsp a::before {
+    top: 2px;
+    left: 0px;
+    width: 53px;
+    height: 38px;
+    background-position: -240px -50px
+}
+
+/* award 두번째 */
+.footer__award-item--bcli {
+    width: 230px
+}
+.footer__award-item--bcli a {
+    padding-left: 50px
+}
+.footer__award-item--bcli a::before {
+    top: 2px;
+    left: 0px;
+    width: 44px;
+    height: 44px;
+    background-position: 0px -105px
+}
+.footer__award-item--bcli a:hover {
+    text-decoration: underline
+}
+
+/* award 더보기 */
+.footer__award--more {
+    position: absolute;
+    right: 0px;
+    top: 24px;
+    padding: 8px 10px 8px 12px;
+    border: 1px solid #d5d5d7;
+    line-height: 1;
+    color: #000;
+    font-size: small;
+    font-weight: bold;
+    letter-spacing: -1px
+}
+.footer__award--more:hover {
+    color: #000
+}
+.footer__award--more::after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 9px;
+    vertical-align: top;
+    margin: 2px 0px 0px 7px;
+   
+    background-position: center;
+    -moz-background-size: 140%;
+    background-size: 140%
+}
+
+/* 모바일 서비스 */
+.footer__mobile-service {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 0px auto 17px;
+    background-color: #c6c6c6;
+    background-image: url("/content/images/main//bg_ftrmsrv_y.png");
+    background-repeat: repeat-y;
+    background-position: 50% 0px
+}
+.footer__mobile-service--information {
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 50%;
+    height: 50px;
+    padding-top: 13px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.footer__mobile-service--link {
+    display: block;
+    overflow: hidden;
+    float: left;
+    width: 50%;
+    height: 50px;
+    padding-top: 13px;
+    text-align: center;
+    box-sizing: border-box
+}
+
+/* copyright */
+.copyright {
+    padding: 23px 0px 30px;
+    text-align: center;
+    font-size: 11px;
+    font-family: tahoma, sans-serif;
+    letter-spacing: 0px
+}
+.copyright a {
+    color: #888
+}
